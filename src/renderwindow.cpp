@@ -30,3 +30,10 @@ void RenderWindow::cleanUp()
 {
     SDL_DestroyWindow(window);
 }
+void RenderWindow::gameLoop(void (*loop)()) {	
+	Uint64 start = SDL_GetPerformanceCounter();
+	loop();
+	Uint64 end = SDL_GetPerformanceCounter();
+	float elapsedMS = (end - start) / (float)SDL_GetPerformanceFrequency() * 1000.0f;
+	SDL_Delay(floor(16.666f - elapsedMS));
+}

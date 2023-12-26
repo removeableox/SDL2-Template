@@ -14,4 +14,5 @@ public:
     void display();
     void cleanUp();
     SDL_Texture *loadTexture(std::string path);
+		void gameLoop(void (*loop)());
 };
